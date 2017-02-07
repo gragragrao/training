@@ -1,5 +1,9 @@
 # リスト
 
+
+
+# 練習も兼ねて例外処理を使っています。
+
 # 問題 1
 
 class MyException(Exception):
@@ -27,9 +31,6 @@ print(get_average([]))
 
 # 問題 2
 
-class MyException(Exception):
-    pass
-
 def get_variance(a):
     try:
         if len(a) == 0:
@@ -46,3 +47,5 @@ def get_variance(a):
 
 print(get_variance([1.3, 2.2, 10.3, 4.3]))
 # >>> 12.301875000000003
+
+print(get_variance([]))
