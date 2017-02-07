@@ -46,7 +46,19 @@ def count_even(a):
 
 print(count_even([1, 2, 3, 4, 5, 6, 7, 8]))
 
+"""
+# 上記で正解です！
+# 一行で書くとこうなります
+count_even = lambda a: len(list(filter(lambda n: n % 2 == 0, a)))
+# 無理に一行で書こうとすると
+print((lambda a: len(list(filter(lambda n: n % 2 == 0, a))))([1, 2, 3, 4, 5, 6, 7, 8]))
+# と書くこともできます
+# つまり、(lambda a: len(list(filter(lambda n: n % 2 == 0, a)))) 自体が一つの関数として評価される
 
+# リスト内包表記を使って下記のように書くことも出来ます
+def count_even(a):
+    return len([n for n in a if n % 2 == 0])
+"""
 
 
 # 問題 3
