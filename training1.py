@@ -9,10 +9,12 @@ num = int(input("what number do you want to look at?"))
 # inputされるデータはstringであることに注意する。
 def judge_odd_even():
     if num % 2 == 1:
-        print("odd")
+        return "odd"
     else:
-        print("even")
-judge_odd_even()
+        return "even"
+
+print(judge_odd_even())
+
 
 
 
@@ -24,10 +26,12 @@ def count_even(list):
     for i in list:
         if i % 2 == 0:
             count += 1
-    print(count)
+    return count
 
-# count_even([1, 3, 4, 2, 7, 10])
-# count_even([])
+
+print(count_even([1, 3, 4, 2, 7, 10]))
+print(count_even([]))
+
 
 
 
@@ -36,8 +40,8 @@ def count_even(list):
 
 def list_contain(name, list):
     if name in list:
-        print("True")
+        return "True"
     else:
-        print("False")
+        return "False"
 
-# list_contain("Tom", ["Tom", "Michael", "Tony", "Mike", "John"])
+print(list_contain("Tom", ["Tom", "Michael", "Tony", "Mike", "John"]))
