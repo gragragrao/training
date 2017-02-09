@@ -49,3 +49,14 @@ print(get_variance([1.3, 2.2, 10.3, 4.3]))
 # >>> 12.301875000000003
 
 print(get_variance([]))
+
+
+
+# 問題 3
+
+def remove_overlap(a):
+    a = list(set(a))
+    return a
+
+print(remove_overlap([1, 2, 4, 2, 4, 9, 4, 8]))
+print(remove_overlap(["hoge", "foo", "hoge", "bar", "foo"]))
