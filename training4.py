@@ -25,6 +25,7 @@ print(eliminate_parameters("html://scouty.co.jp/search"))
 # 3.","でjoin()
 # 4.dict()
 
+
 def create_parameter_dict(s):
     s1 = s.replace(eliminate_parameters(s)+"?", "")  # "?"以降を切り取る
     s2 = s1.replace("&", ", ")
