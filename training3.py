@@ -33,7 +33,10 @@ print(merge_dict({"Tom": 90, "Jane": 43, "Mike": 32}, {"Michael": 32, "Alice": 3
 
 
 def sort_dict_by_value(a):
-    
+    list = []
+    for key in a:
+        list.append(key)
+    return list
 
 
 print(sort_dict_by_value({"Michael": 23, "Alice": 54, "Tom": 39, "Mike": 44}))
