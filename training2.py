@@ -52,6 +52,7 @@ print(get_variance([]))
 # >>> 0
 
 
+
 # 問題 3
 
 def remove_overlap(a):
