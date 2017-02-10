@@ -29,6 +29,7 @@ print(merge_dict({"Tom": 90, "Jane": 43, "Mike": 32}, {"Michael": 32, "Alice": 3
 
 
 
+
 # 問題 3
 
 
