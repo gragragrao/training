@@ -37,17 +37,20 @@ def eliminate_parameters(s):
 # 4.dict()
 
 
-def create_parameter_dict(s):
-    s1 = s.replace(eliminate_parameters(s)+"?", "")  # "?"以降を切り取る
-    s2 = s1.replace("&", ", ")
-    # >> location=Tokyo, escore=3.0
-
-    return dict(s2)
-
-    # なんでこれでうまくいかないのかわかりません...
+# ↓↓↓↓↓↓↓↓↓1回目の回答↓↓↓↓↓↓↓↓
 
 
-print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.0"))
+# def create_parameter_dict(s):
+#     s1 = s.replace(eliminate_parameters(s)+"?", "")  # "?"以降を切り取る
+#     s2 = s1.replace("&", ", ")
+#     # >> location=Tokyo, escore=3.0
+#
+#     return dict(s2)
+#
+#     # なんでこれでうまくいかないのかわかりません...
+#
+#
+# print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.0"))
 
 '''
 作戦2まではGood。
@@ -55,7 +58,7 @@ print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.
     s1 = s.replace(eliminate_parameters(s)+"?", "")  # "?"以降を切り取る
 
 これめっちゃまどろっこしいですねw
-s1 = s.split('?')[1] 
+s1 = s.split('?')[1]
 とかってキレイにかけます　あと正規表現のgroupを使うとキレイに書けるよ。
 
 なんか dict を勘違いしてないか？
@@ -68,6 +71,21 @@ dict は文字列を 辞書にしてくれる関数じゃないぞー
 '''
 
 
+# 作り直しました。（２回目の回答）
+
+
+def create_parameter_dict(s):
+    s1 = s.split("?")[1]
+    s2 = s1.split("&")
+    dic = {}
+    for st in s2:
+        st_list = st.split("=")
+        dic[st_list[0]] = st_list[1]
+    return dic
+
+print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.0"))
+# >>> {'location': 'Tokyo', 'escore': '3.0'}
+
 
 
 '''
@@ -75,3 +93,29 @@ dict は文字列を 辞書にしてくれる関数じゃないぞー
 がscoutyをコーディングするときに実際に直面する問題はもっと難しい！
 この問題は候補者のメアド取ってくるとこでshowwinが実際に書きました　（ちなみに頑張れば1行で書ける）
 '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####
