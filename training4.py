@@ -75,13 +75,18 @@ dict は文字列を 辞書にしてくれる関数じゃないぞー
 
 
 def create_parameter_dict(s):
-    s1 = s.split("?")[1]
-    s2 = s1.split("&")
-    dic = {}
-    for st in s2:
-        st_list = st.split("=")
-        dic[st_list[0]] = st_list[1]
-    return dic
+    parameter_string = s.split("?")[1]
+    value_pair_list = parameter_string.split("&")
+    parameter_dict = {}
+    
+    for value_pair in value_pair_list:
+        key, value = value_pair.split("=")
+        parameter_dict[key] = value
+
+    aa = [value_pair.split("=") for value_pair in s.split("?")[1].split("&")]
+    return {key:value for key, value in aa}
+
+    return parameter_dict
 
 print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.0"))
 # >>> {'location': 'Tokyo', 'escore': '3.0'}
