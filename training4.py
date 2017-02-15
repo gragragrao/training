@@ -78,7 +78,7 @@ def create_parameter_dict(s):
     parameter_string = s.split("?")[1]
     value_pair_list = parameter_string.split("&")
     parameter_dict = {}
-    
+
     for value_pair in value_pair_list:
         key, value = value_pair.split("=")
         parameter_dict[key] = value
@@ -98,7 +98,6 @@ print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.
 がscoutyをコーディングするときに実際に直面する問題はもっと難しい！
 この問題は候補者のメアド取ってくるとこでshowwinが実際に書きました　（ちなみに頑張れば1行で書ける）
 '''
-
 
 
 
