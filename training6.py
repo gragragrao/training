@@ -15,12 +15,26 @@ def get_html_content(url):
     html = urllib.request.urlopen(url).read()
     return html
 
+'''
+一応正解です
+
+でも、なんでurllibを使ってるんだw？
+まあ、別にurllibでもいいんですが、問題的にはrequestsというライブラリを使う想定です。
+urllibとrequestsはだいたい同じ動きをしますが違うライブラリです。最近はrequestsの方が人気です。
+このコードでも全然問題無いですが。
+'''
+
 
 # 問題 3
 
 def get_soup(url):
     soup = BeautifulSoup(get_html_content(url), "lxml")
     return soup
+
+'''
+"lxml"じゃなくて、"html.parser"がよさげ。HTMLをパースするので。
+ま、これでも動くかな
+'''
 
 
 # 問題 4
@@ -64,6 +78,13 @@ print(get_all_links("http://requests-docs-ja.readthedocs.io/en/latest/"))
  'user/advanced/#session-objects', 'https://github.com/kennethreitz/requests', '#id3'}
 """
 
+'''
+島田コメント
+{}で囲むとディクショナリになってしまうので、ここは[]を使いましょう
+それ以外はOKです。
+
+問題なく書けてます！
+'''
 
 
 

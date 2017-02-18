@@ -37,6 +37,9 @@ class Scout:
         return [person.name for person in candidates_and]
 
 
+'''
+合格！！
+'''
 
 
 

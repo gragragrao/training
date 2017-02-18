@@ -93,12 +93,6 @@ print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.
 
 
 
-'''
-問題3は難しい！
-がscoutyをコーディングするときに実際に直面する問題はもっと難しい！
-この問題は候補者のメアド取ってくるとこでshowwinが実際に書きました　（ちなみに頑張れば1行で書ける）
-'''
-
 
 
 # 問題 3
@@ -135,6 +129,7 @@ print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.
 
 import re
 
+'''
 def correct_email_address(raw_email):
     if re.match():
         correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
@@ -142,7 +137,7 @@ def correct_email_address(raw_email):
     else:
         correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
         return correct_email
-
+'''
 
 
 # ひろきさんの問題を解くための関数↓↓↓↓
@@ -150,13 +145,35 @@ def correct_email_address(raw_email):
     correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
     return correct_email
 
+'''
+島田コメント
+
+これはテストケースに対してだけうまく働くコードで、実際は使えませんね。
+正しいとはいえません！
+
+たとえば
+gmaillover@gmail.com
+みたいなメアドに対する出力が、gmail.com になってしまいます。
+
+re.sub("gmail.*", r"gmail.com")
+はバッドアイディアです。@前のgmailにも反応しますし、gmail以外にはもちろん使えないからです。
+
+i_am_hiroki@gmail.com
+みたいなメアドに対する出力も、i@gmail.comになっちゃいます。
+
+また、問題設定には書いてませんでしたが現実問題gmailだけではないので、gmailという形を想定せずほかのドメイン hiroki@yahoo.co.jpみたいな形にも対応できるようにしましょう。
 
 
+あと、無理して1行で書かなくても全然良いので、複数行でも見やすいコードで書きましょう。
 
+'''
+
+
+'''
 def correct_email_address(raw_email):
     correct_email = re.sub("@.*?@", "@", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", re.sub(".gmail.*", r"@gmail.com", raw_email)))
     return correct_email
-
+'''
 
 
 
