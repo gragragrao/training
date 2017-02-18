@@ -101,14 +101,82 @@ print(create_parameter_dict("http://scouty.co.jp/search?location=Tokyo&escore=3.
 
 
 
+# 問題 3
+
+# 最初の問題
+
+# showwin[at]gmail.com
+# showwin at gmail.com
+# showwin@gmail dot com
+# showwin [at] gmail dot com
+# showwin _at_ gmail [dot] com
+# showwin _atmk_ gmail.com
+
+# showwinさんの追加課題
+
+# psychedesire(gmail account)
+# my-sirname on gmail
+# smihica_gmail_com
+# 2tacatakataca2(gmail)
+# mchachimituserver.gmail.com
+# sepeth + gmail.com
+# linshao512#gmail.com
 
 
 
+# 絶対 "gmail" が入っている。
+# アカウント固有文字列の次は "[,  , @, (, _, ., #" のみ
+# つまり、アカウント固有文字列を除くことだけ考えればアドレスは
+# ".*?(\[| |\(|_|\.|#).*?(\]| |\(|\)|_|\.|#)gmail.*"
+# となる。
+#
+# つまり"(\[| |\(|_|\.|#).*?(\]| |\(|\)|_|\.|#)"を"@"で置き換えて、
+# "gmail.*"を"gmail.com"で置き換えたら解決！
+
+import re
+
+def correct_email_address(raw_email):
+    if re.match():
+        correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
+        return correct_email
+    else:
+        correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
+        return correct_email
+
+# def correct_email_address(raw_email):
+#     correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
+#     return correct_email
 
 
+# どちらでもうまくいく
+print(correct_email_address("showwin@gmail dot com"))
+
+# 上しかうまくいかない
+print(correct_email_address("showwin[at]gmail.com"))
+print(correct_email_address("showwin at gmail.com"))
+print(correct_email_address("showwin [at] gmail dot com"))
+print(correct_email_address("showwin _at_ gmail [dot] com"))
+print(correct_email_address("showwin _atmk_ gmail.com"))
+print(correct_email_address("my-sirname on gmail"))
+print(correct_email_address("sepeth + gmail.com"))
+
+# 下しかうまくいかない
+print(correct_email_address("psychedesire(gmail account)")) # >>> psychedesire@account)
+print(correct_email_address("smihica_gmail_com")) # >>> smihica@com
+print(correct_email_address("2tacatakataca2(gmail)")) # >>> 2tacatakataca2@
+print(correct_email_address("mchachimituserver.gmail.com")) # >>> mchachimituserver@com
+print(correct_email_address("linshao512#gmail.com")) # >>> linshao512@com
 
 
-
+#
+# # def correct_email_address(raw_email):
+# #     correct_email = re.sub("@.*?@", "@", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", re.sub(".gmail.*", r"@gmail.com", raw_email)))
+# #     return correct_email
+#
+# # テスト用
+# def correct_email_address1(raw_email):
+#     correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
+#     return correct_email
 
 
 
