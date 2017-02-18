@@ -143,9 +143,27 @@ def correct_email_address(raw_email):
         correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
         return correct_email
 
-# def correct_email_address(raw_email):
-#     correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
-#     return correct_email
+
+
+# ひろきさんの問題を解くための関数↓↓↓↓
+def correct_email_address(raw_email):
+    correct_email = re.sub("@.*?@", "@", re.sub("gmail.*", r"gmail.com", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", raw_email)))
+    return correct_email
+
+
+
+
+def correct_email_address(raw_email):
+    correct_email = re.sub("@.*?@", "@", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", re.sub(".gmail.*", r"@gmail.com", raw_email)))
+    return correct_email
+
+
+
+
+# テスト用
+def correct_email_address1(raw_email):
+    correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
+    return correct_email
 
 
 # どちらでもうまくいく
@@ -168,15 +186,7 @@ print(correct_email_address("mchachimituserver.gmail.com")) # >>> mchachimituser
 print(correct_email_address("linshao512#gmail.com")) # >>> linshao512@com
 
 
-#
-# # def correct_email_address(raw_email):
-# #     correct_email = re.sub("@.*?@", "@", re.sub("(\[|\]| |\(|_|\.|#).*?(\]|\[| |\(|\)|_|\.|#)", "@", re.sub(".gmail.*", r"@gmail.com", raw_email)))
-# #     return correct_email
-#
-# # テスト用
-# def correct_email_address1(raw_email):
-#     correct_email = re.sub(".gmail.*", r"@gmail.com", raw_email)
-#     return correct_email
+
 
 
 
