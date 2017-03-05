@@ -34,3 +34,25 @@ class GithubScraper:
 
 
 ####
+
+'''
+実装、合ってます！！
+
+Userは別にこれでもいいんですが、
+
+class User:
+    def __init__(self, name="", login_id="", email="", location="", company=""):
+        self.name = name
+        self.login_id = login_id
+        self.email = email
+        self.location = location
+        self.company = company
+
+としておくと、より柔軟性が高まります。
+    def __init__(self, name="", login_id="", email="", location="", company=""):
+みたいな感じで、パラメータに name="" というかんじで値を代入すると「初期値」として扱われ、nameが与えられなかった時に 自動的に""がnameに代入されます。
+
+こうしておくと、 User() としてもいいし、User("Hiroki Shimada", "functionp") と呼び出すこともできるので柔軟。
+
+
+'''
